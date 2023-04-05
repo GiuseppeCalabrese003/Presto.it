@@ -1,0 +1,116 @@
+/* Palette Colori */
+:root{
+
+    --primary : rgb(251, 248, 228);
+    --secondary : rgb(130, 123, 173);
+    --accent : rgb(230, 227, 250);
+    --whiteCustom : #FEFEFE ;
+    --blackCustom : #272626;
+
+}
+
+/* classi colore */
+
+.text-primaryC{
+
+    color: var(--primary);
+
+}
+
+.text-secondaryC{
+
+    color: var(--secondary);
+
+}
+
+.text-accentC{
+
+    color: var(--accent);
+
+}
+
+.text-whiteC{
+
+    color: var(--whiteCustom);
+
+}
+
+.text-blackC{
+
+    color: var(--blackCustom);
+
+}
+
+/* classi colore background */
+
+.background-primaryC{
+
+    background-color: var(--primary);
+
+}
+
+.background-secondaryC{
+
+    background-color: var(--secondary);
+
+}
+
+.background-accentC{
+
+    background-color: var(--accent);
+
+}
+
+.background-whiteC{
+
+    background-color: var(--whiteCustom);
+
+}
+
+.background-blackC{
+
+    background-color: var(--blackCustom);
+
+}
+
+body{
+    overflow-x: hidden;
+    background-color: var(--primary);
+}
+
+/* Navbar */
+.logoA{
+    height: 50px;
+    width: 80px;
+}
+
+.btn-navbar-custom{
+    background-color: var(--secondary);
+    color: var(--whiteCustom);
+    transition: 0.4s;
+}
+
+.btn-navbar-custom:hover{
+    background-color: var(--accent);
+    color: var(--blackCustom);
+}
+
+#mainNavbar{
+    transition: 0.4s;
+}
+/* Header */
+.headerCustom{
+    background: linear-gradient(145deg, rgba(36, 36, 36, 0.222), rgba(230, 227, 250, 0.694)), url('./media/header.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+
+/* sezione numeri */
+.incrementNumber{
+    font-size: 50px;
+    color: var(--secondary);
+    font-weight: 900;
+}
+
