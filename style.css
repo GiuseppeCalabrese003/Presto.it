@@ -73,6 +73,7 @@
 
 }
 
+/* tolto lo scroll orizzontale pagina */
 body{
     overflow-x: hidden;
     background-color: var(--primary);
@@ -114,3 +115,21 @@ body{
     font-weight: 900;
 }
 
+/* swiper */
+.swiper {
+    /* width: 600px; */
+    height: 400px;
+  }
+
+.card-custom{
+    height: 200px;
+    width: 300px;
+    border: 2px solid var(--secondary);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+
+}
