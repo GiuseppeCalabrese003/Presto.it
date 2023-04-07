@@ -133,3 +133,23 @@ body{
     
 
 }
+.col-custom{
+    border-radius: 20px;
+    border: 2px solid var(--secondary);
+    padding: 15px;
+    background-color: var(--primary);
+    transition: 0.4s;
+    
+}
+
+.col-custom:hover{
+    background-color: var(--secondary);
+    border: var(--blackCustom);
+    border: 2px solid var(--blackCustom);
+    transform: scale(1.2);
+}
+
+.min-h{
+
+    min-height: 50px;
+}
