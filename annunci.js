@@ -86,18 +86,18 @@ function showCards(array){
 
     cardsWrapper.innerHTML= '';
 
-    array.sort((a , b)=> Number(a.price - b.price))
+    array.sort((a , b)=> Number(b.price - a.price))
 
 
 
-    array.forEach( (element)=>{
+    array.forEach( (element , i)=>{
 
         let div = document.createElement('div')
         div.classList.add('col-12' ,  'col-md-3' , 'my-5')
         div.innerHTML= `
 
                 <div class="announcement-card text-center">
-
+                <img class="img-card-custom" src="https://picsum.photos/${200 + i}" alt="">
                 <p class="h3">${element.name}</p>
                 <p>${element.category}</p>
                 <p>${element.price} €</p>
@@ -114,16 +114,24 @@ showCards(data);
 
 
 // funzione che mostra le cards filtrate per categoria
-function filterByCategory(categoria){
-    
+function filterByCategory(array){
+
+    // node list trasformata in un array con il metodo from e poi il metodo .find per trovare un elemento che rispetta una condizione data
+    // let categoria = Array.from(checkInputs).find( (button)=> button.checked).id;
+
+    let arrayFromNodeList = Array.from(checkInputs);
+    let button = arrayFromNodeList.find((bottone)=> bottone.checked);
+    let categoria = button.id
+
+
     if(categoria != 'All'){
 
-    let filtered = data.filter( (annuncio)=> annuncio.category == categoria);
-    showCards(filtered);
+    let filtered = array.filter( (annuncio)=> annuncio.category == categoria);
+    return filtered;
 
     }else{
 
-    showCards(data);
+    return data;
 
     }
     
@@ -135,7 +143,7 @@ let checkInputs = document.querySelectorAll('.form-check-input');
 checkInputs.forEach((checkInput)=>{
 
     checkInput.addEventListener('click', ()=>{
-        filterByCategory(checkInput.id);
+        globalFilter();
     })
 
 
@@ -166,11 +174,13 @@ function setInputPrice(){
 
 
 // filtro per prezzo
-function filterbyPrice(prezzo){
+function filterbyPrice(array){
 
-    let filtered = data.filter( (annuncio)=> Number(annuncio.price <= prezzo) );        
+    let filtered = array.filter((annuncio)=> annuncio.price <= +(inputPrice.value) );        
 
-    showCards(filtered);
+    
+
+    return filtered;
 
 }
 
@@ -178,26 +188,48 @@ function filterbyPrice(prezzo){
 
 inputPrice.addEventListener('input', ()=>{
 
-    filterbyPrice(inputPrice.value);
-
+    
     incrementNumber.innerHTML = inputPrice.value;
-
+    
+    globalFilter();
 
 } )
 
 // catturo word input filtro parola
 let wordInput = document.querySelector('#wordInput')
 
-function filteredbyWord (nome){
+function filterbyWord (array){
 
-    let filtered = data.filter((annuncio)=> annuncio.name.toLowerCase().includes(nome.toLowerCase()));
+    let nome = wordInput.value;
+
+    if(nome.replaceAll(' ','').lenght != 0 ){
+     let filtered = array.filter((annuncio)=> annuncio.name.toLowerCase().includes(nome.toLowerCase()));
     
-    showCards(filtered)
+    return filtered;    
+    };
+
+   
 }
 
 // evento digito parola
     wordInput.addEventListener('input', ()=>{
-        filteredbyWord(wordInput.value);
+        globalFilter();
     })
-} )
 
+
+// funzione globale che collega più filtri
+function globalFilter(){
+
+    let filteredByCategory = filterByCategory(data);
+    let filteredByPrice = filterbyPrice(filteredByCategory);
+    let filteredByWord = filterbyWord(filteredByPrice);
+    showCards(filteredByWord);
+
+}
+
+
+
+
+
+
+} )

@@ -173,3 +173,9 @@ body{
     font-size: 20px;
     font-weight: 900;
 }
+
+
+.img-card-custom{
+    height: 100px;
+    border-radius: 50%;
+}
