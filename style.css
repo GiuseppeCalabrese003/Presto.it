@@ -179,3 +179,43 @@ body{
     height: 100px;
     border-radius: 50%;
 }
+
+/* Pagina Chi Siamo */
+.circle{
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    border: 2px dashed var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+.opener{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--blackCustom);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    background-color: var(--accent);
+    cursor: pointer;
+    
+}
+.moved{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--blackCustom);
+    position: absolute;
+   
+    transition: 1s;
+
+    background-image: url("./media/OIP.jpg");
+    background-size: cover;
+
+}
